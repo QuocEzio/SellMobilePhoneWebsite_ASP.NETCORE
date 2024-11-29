@@ -1,0 +1,274 @@
+﻿@model WebsiteBanDienThoai23.Web.Models.SanPhamModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/slick-theme.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+
+<body>
+    <section>
+        <div class="container-fluid section">
+            <div class="row slide_and_main_news">
+                <div class="slide_bar">
+                    <div class="demo hidden-xs hidden-sm">
+                        <div><a href="#"><img class="img-responsive" src="images/banner1.webp" alt=""></a></div>
+                        <div><a href="#"><img class="img-responsive" src="images/banner2.webp" alt=""></a></div>
+                        <div><a href="#"><img class="img-responsive" src="images/banner3.webp" alt=""></a></div>
+                        <div><a href="#"><img class="img-responsive" src="images/banner4.webp" alt=""></a></div>
+                    </div>
+                    <div class="title hidden-xs hidden-sm" style="text-align: center;">
+                        <div style="border-right: 1px solid silver;">
+                            <p>Mua ngay Iphone 15 <br> Độc Quyền Quà 3 Triệu</p>
+                        </div>
+                        <div style="border-right: 1px solid silver;">
+                            <p>Samsung Trả Góp 0% <br> Voucher Đến 1 Triệu</p>
+                        </div>
+                        <div style="border-right: 1px solid silver;">
+                            <p>Cuối Tuần Giảm Sốc <br> Giảm Đến 4 Triệu</p>
+                        </div>
+                        <div style="border-right: 1px solid silver;">
+                            <p>iphone 13 đang giảm giá <br> Giảm Đến 2 Triệu</p>
+                        </div>
+                        <div style="border-right: 1px solid silver;">
+                            <p>iphone 14 đang giảm giá <br> Giảm Đến 2 Triệu</p>
+                        </div>
+                        <div style="border-right: 1px solid silver;">
+                            <p>iphone 12 đang giảm giá <br> Giảm Đến 2 Triệu</p>
+                        </div>
+                        <div style="border-right: 1px solid silver;">
+                            <p>iphone 11 đang giảm giá <br> Giảm Đến 2 Triệu</p>
+                        </div>
+                    </div>
+                    <div class="demo_mobile visible-xs visible-sm">
+                        <div><a href="#"><img class="img-responsive" src="images/banner1.webp" alt=""></a></div>
+                        <div><a href="#"><img class="img-responsive" src="images/banner2.webp" alt=""></a></div>
+                        <div><a href="#"><img class="img-responsive" src="images/banner3.webp" alt=""></a></div>
+                        <div><a href="#"><img class="img-responsive" src="images/banner4.webp" alt=""></a></div>
+                    </div>
+                    <div class="title_mobile visible-xs visible-sm" style="text-align: center;">
+                        <div style="border-right: 1px solid silver;">
+                            <p>Mua ngay Iphone 15 <br> Độc Quyền Quà 3 Triệu</p>
+                        </div>
+                        <div style="border-right: 1px solid silver;">
+                            <p>Samsung Trả Góp 0% <br> Voucher Đến 1 Triệu</p>
+                        </div>
+                        <div style="border-right: 1px solid silver;">
+                            <p>Cuối Tuần Giảm Sốc <br> Giảm Đến 4 Triệu</p>
+                        </div>
+                        <div style="border-right: 1px solid silver;">
+                            <p>iphone 13 đang giảm giá <br> Giảm Đến 2 Triệu</p>
+                        </div>
+                        <div style="border-right: 1px solid silver;">
+                            <p>iphone 14 đang giảm giá <br> Giảm Đến 2 Triệu</p>
+                        </div>
+                        <div style="border-right: 1px solid silver;">
+                            <p>iphone 12 đang giảm giá <br> Giảm Đến 2 Triệu</p>
+                        </div>
+                        <div style="border-right: 1px solid silver;">
+                            <p>iphone 11 đang giảm giá <br> Giảm Đến 2 Triệu</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row ads_banner_2">
+                    <div class="col-xs-12">
+                        <a href="/DienThoai"><img src="images/bannerf.jpg" alt="" class="img-responsive"></a>
+                    </div>
+                </div>
+                <div class="row main_slide_phone_weekend">
+                    <div class="col-md-12 slide_phone_weekend">
+                        <div class="phone_weekend hidden-xs hidden-sm">
+                            @{
+                                var random = new Random();
+                                var spModel = Model.Items.OrderBy(x => random.Next()).ToList();
+                            }
+                            @foreach (var item in spModel)
+                            {
+                                if (item.GiamGia > 1)
+                                {
+                                    decimal giaDaGiam = Math.Round(item.Gia * (1 - (item.GiamGia / 100)));
+                                    <div>
+                                        <p class="price" style="color: orange">Giảm ngay <span>@item.GiamGia</span>%</p>
+                                        <a asp-controller="DienThoai" asp-action="Details" asp-route-id="@item.MaSp"><img class="img-responsive" src="imgProduct/@item.Hinh" alt=""></a>
+                                        <div class="sub_title">
+                                            <h4>
+                                                <a href="@Url.Action("Details", "DetailsProduct", new { id = item.MaSp })">@item.TenSp</a>
+                                            </h4>
+                                            <p class="price">@Math.Round(item.Gia * (1 - (item.GiamGia / 100))).ToString("N0")<span>₫</span></p>
+                                            <p class="old_price">@item.Gia.ToString("N0")<span>₫</span></p>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="row phone_most_prominent">
+                    <div class="col-md-12">
+                        <ul class="list_phone_most_prominent">
+                            <li>Điện thoại nổi bật</li>
+                            <li><a asp-area="" asp-controller="DienThoai" asp-action="Index">Xem tất cả điện thoại</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-12 phones">
+                        <div class="row">
+                                <div class="col-sm-6 col-md-4">
+                                <a asp-controller="DienThoai" asp-action="Details" asp-route-id="@Model.Items.FirstOrDefault().MaSp"><img class="img-responsive" src="imgProduct/@Model.Items.FirstOrDefault().Hinh" alt="" style="width: 100%;"></a>
+                                    <div class="sub_title">
+                                    <h4><a href="#">@Model.Items.FirstOrDefault().TenSp</a></h4>
+                                    <p class="price">@Math.Round(Model.Items.FirstOrDefault().Gia * (1 - (Model.Items.FirstOrDefault().GiamGia / 100))).ToString("N0")<span>₫</span></p>
+                                    <p class="old_price">@Model.Items.FirstOrDefault().Gia.ToString("N0")<span>₫</span></p>
+                                    </div>
+                                </div>
+                             
+
+                            <div class="col-md-8">
+                                <div class="row">
+                                    @for (int i = 1; i <= 3; i++)
+                                    {
+                                        var item = Model.Items.ElementAtOrDefault(i);
+                                        if (item != null)
+                                        {
+                                            <div class="col-md-4 col-sm-4">
+                                                <a asp-controller="DienThoai" asp-action="Details" asp-route-id="@item.MaSp"><img class="img-responsive" src="imgProduct/@item.Hinh" alt="" class="img-responsive"></a>
+                                                <div class="sub_title">
+                                                    <h4><a href="#">@item.TenSp</a></h4>
+                                                    <p class="price">@Math.Round(item.Gia * (1 - (item.GiamGia / 100))).ToString("N0")<span>₫</span></p>
+                                                    <p class="old_price">@item.Gia.ToString("N0")<span>₫</span></p>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 phones">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-4">
+                                <a asp-controller="DienThoai" asp-action="Details" asp-route-id="@Model.Items.Skip(4).FirstOrDefault().MaSp"><img src="imgProduct/@Model.Items.Skip(4).FirstOrDefault().Hinh" alt="" class="img-responsive" style="width: 100%;"></a>
+                                <div class="sub_title">
+                                    <h4><a href="#">@Model.Items.Skip(4).FirstOrDefault().TenSp</a></h4>
+                                    <p class="price">@Math.Round(Model.Items.Skip(4).FirstOrDefault().Gia * (1 - (Model.Items.Skip(4).FirstOrDefault().GiamGia / 100))).ToString("N0")<span>₫</span></p>
+                                    <p class="old_price">@Model.Items.Skip(4).FirstOrDefault().Gia.ToString("N0")<span>₫</span></p>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="row">
+                                    @for (int i = 5; i <= 7; i++)
+                                    {
+                                        var item = Model.Items.ElementAtOrDefault(i);
+                                        if (item != null)
+                                        {
+                                            <div class="col-md-4 col-sm-4">
+                                                <a asp-controller="DienThoai" asp-action="Details" asp-route-id="@item.MaSp"><img class="img-responsive" src="imgProduct/@item.Hinh" alt="" class="img-responsive"></a>
+                                                <div class="sub_title">
+                                                    <h4><a href="#">@item.TenSp</a></h4>
+                                                    <p class="price">@Math.Round(item.Gia * (1 - (item.GiamGia / 100))).ToString("N0")<span>₫</span></p>
+                                                    <p class="old_price">@item.Gia.ToString("N0")<span>₫</span></p>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row phone_most_prominent">
+                    <div class="col-md-12">
+                        <ul class="list_phone_most_prominent">
+                            <li>điện thoại ios</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-12 phones">
+                        <div class="row">
+                            @{
+                                var iosProducts = Model.Items.Where(item => item.HeDieuHanh.Contains("Ios")).ToList();
+                                var random1 = new Random();
+                                var randomIndices1 = Enumerable.Range(0, iosProducts.Count).OrderBy(x => random1.Next()).Take(4).ToList();
+                            }
+                            @foreach (var index in randomIndices1)
+                            {
+                                var item = iosProducts[index];
+                                <div class="col-md-3 col-sm-3">
+                                    <a asp-controller="DienThoai" asp-action="Details" asp-route-id="@item.MaSp"><img class="img-responsive" src="imgProduct/@item.Hinh" alt=""></a>
+                                    <div class="sub_title">
+                                        <h4><a href="#">@item.TenSp</a></h4>
+                                        <p class="price">@Math.Round(item.Gia * (1 - (item.GiamGia / 100))).ToString("N0")<span>₫</span></p>
+                                        <p class="old_price">@item.Gia.ToString("N0")<span>₫</span></p>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row phone_most_prominent">
+                    <div class="col-md-12">
+                        <ul class="list_phone_most_prominent">
+                            <li>điện thoại android</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-12 phones">
+                        <div class="row">
+                            @{
+                                var adrProducts = Model.Items.Where(item => item.HeDieuHanh.Contains("Android")).ToList();
+                                var random2 = new Random();
+                                var randomIndices2 = Enumerable.Range(0, adrProducts.Count).OrderBy(x => random2.Next()).Take(4).ToList();
+                            }
+                            @foreach (var index in randomIndices2)
+                            {
+                                var item = adrProducts[index];
+                                <div class="col-md-3 col-sm-3">
+                                    <a asp-controller="DienThoai" asp-action="Details" asp-route-id="@item.MaSp"><img class="img-responsive" src="imgProduct/@item.Hinh" alt=""></a>
+                                    <div class="sub_title">
+                                        <h4><a href="#">@item.TenSp</a></h4>
+                                        <p class="price">@Math.Round(item.Gia * (1 - (item.GiamGia / 100))).ToString("N0")<span>₫</span></p>
+                                        <p class="old_price">@item.Gia.ToString("N0")<span>₫</span></p>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row phone_most_prominent">
+                    <div class="col-md-12">
+                        <ul class="list_phone_most_prominent">
+                            <li>điện thoại khác</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-12 phones">
+                        <div class="row">
+                            @{
+                                var oProducts = Model.Items.Where(item => item.HeDieuHanh.Contains("Other")).ToList();
+                                var random3 = new Random();
+                                var randomIndices3 = Enumerable.Range(0, oProducts.Count).OrderBy(x => random3.Next()).Take(4).ToList();
+                            }
+                            @foreach (var index in randomIndices3)
+                            {
+                                var item = oProducts[index];
+                                <div class="col-md-3 col-sm-3">
+                                    <a asp-controller="DienThoai" asp-action="Details" asp-route-id="@item.MaSp"><img class="img-responsive" src="imgProduct/@item.Hinh" alt=""></a>
+                                    <div class="sub_title">
+                                        <h4><a href="#">@item.TenSp</a></h4>
+                                        <p class="price">@Math.Round(item.Gia * (1 - (item.GiamGia / 100))).ToString("N0")<span>₫</span></p>
+                                        <p class="old_price">@item.Gia.ToString("N0")<span>₫</span></p>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</body>
+</html>

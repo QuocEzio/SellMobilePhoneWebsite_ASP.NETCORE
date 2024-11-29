@@ -1,0 +1,119 @@
+﻿@model List<CartModel>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" ">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<main class="page">
+	<section class="shopping-cart dark">
+		<div class="container">
+			<div class="block-heading">
+				<br />
+				<h3>Thông tin đơn hàng</h3>
+			</div>
+			@if (Model != null && Model.Count() > 0)
+			{
+				<div class="row">
+					<div class="col-md-12 col-lg-6">
+						<div class="content">
+							<div>
+								<label for="Ten">Tên:</label>
+								<span>@ViewBag.HoTen</span>
+							</div>
+							<div>
+								<label for="SDT">Số điện thoại:</label>
+								<span>@ViewBag.SDT</span>
+							</div>
+							<div>
+								<label for="Email">Email:</label>
+								<span>@ViewBag.Email</span>
+							</div>
+							<div>
+								<label for="DiaChi">Địa chỉ:</label>
+								<span>@ViewBag.DiaChi</span>
+							</div>
+
+							<div>
+								<label>Phương thức thanh toán mặc định: <strong>Tiền mặt</strong></label>
+							</div>
+
+							<button id="selectPaymentMethod" class="btn btn-secondary" onclick="togglePaymentForm()">Chọn phương thức Visa</button>
+
+							<div id="paymentForm" style="display: none; margin-top: 20px;">
+								<h2>Form thanh toán trực tuyến</h2>
+								<form asp-controller="Cart" asp-action="Order" method="post">
+									<div class="form-group">
+										<label for="name">Tên trên thẻ:</label>
+										<input type="text" id="name" name="name" required class="form-control">
+									</div>
+									<div class="form-group">
+										<label for="visa">Số thẻ Visa:</label>
+										<input type="text" id="visa" name="visa" required class="form-control">
+									</div>
+									<div class="form-group">
+										<label for="expiry">Hạn MM/YY:</label>
+										<input type="text" id="expiry" name="expiry" required class="form-control">
+									</div>
+									<div class="form-group">
+										<label for="cvc">Mã CVC:</label>
+										<input type="text" id="cvc" name="cvc" required class="form-control">
+									</div>
+									<input type="hidden" id="paymentMethodField" name="paymentMethod" value="">
+
+									<button id="paymentButton" type="submit" class="btn btn-primary">Thanh toán</button>
+								</form>
+							</div>
+
+							<script>
+								function togglePaymentForm() {
+									var paymentForm = document.getElementById("paymentForm");
+									var selectPaymentButton = document.getElementById("selectPaymentMethod");
+									var paymentMethodField = document.getElementById("paymentMethodField");
+
+									if (paymentForm.style.display === "none" || paymentForm.style.display === "") {
+										paymentForm.style.display = "block";
+										selectPaymentButton.textContent = "Chọn lại phương thức tiền mặt";
+										paymentMethodField.value = "Online";
+									} else {
+										paymentForm.style.display = "none";
+										selectPaymentButton.textContent = "Chọn phương thức Visa";
+										paymentMethodField.value = "";
+									}
+								}
+							</script>
+   
+							
+						</div>
+					</div>
+					<div class="col-md-12 col-lg-6">
+						<div class="summary">
+							<h3>Thông tin thanh toán</h3>
+							<div class="summary-item"><span class="text">Tổng số lượng: </span><span class="price">@ViewBag.CountProduct</span></div>
+							<div class="summary-item"><span class="text">Tổng Giá sản phẩm: </span><span class="price">@ViewBag.SubTotal.ToString("N0")<span>₫</span></span></div>
+							<div class="summary-item"><span class="text">Giảm giá: </span><span class="price">@ViewBag.Discount.ToString("N0")<span>₫</span></span></div>
+							<div class="summary-item"><span class="text">Phí vận chuyển: </span><span class="price">0<span>₫</span></span></div>
+							<div class="summary-item"><span class="text">Tổng thành tiền: </span><span class="price">@ViewBag.Total.ToString("N0")<span>₫</span></span></div>
+							<br />
+							<form method="post" action="@Url.Action("Order")">
+								@Html.AntiForgeryToken()
+								<button type="submit" class="btn btn-primary">Đặt hàng</button>
+							</form>
+							<br /> 
+						</div>
+					</div>
+				</div>
+			}
+			else
+			{
+				<p>Giỏ hàng của bạn đang trống.</p>
+				<a href="@Url.Action("Index", "Home")">Tiếp tục mua sắm</a>
+			}
+		</div>
+	</section>
+</main>
+<div style="height: 250px;"></div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+

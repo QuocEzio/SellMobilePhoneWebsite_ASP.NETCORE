@@ -1,0 +1,98 @@
+﻿@model IEnumerable<WebsiteBanDienThoai23.Web.Models.CartModel>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" ">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<main class="page">
+	<section class="shopping-cart dark">
+		<div class="container">
+			<div class="block-heading">
+				<br />
+				<h2>Giỏ hàng của bạn</h2>
+			</div>
+			@if (Model != null && Model.Count() > 0)
+			{ 
+			<div class="content">
+				<div class="row">
+					<div class="col-md-12 col-lg-8">
+						<div class="items">
+							<br />
+							@foreach (var item in Model)
+							{
+								<a href="@Url.Action("Delete", "Cart", new { id = item.MaSp })" style="background-color: #dc3545; color: #fff; padding: 5px 10px;">X</a>
+								<div class="product">
+									<div class="row">
+										
+										<div class="col-md-3">
+											<img class="img-fluid mx-auto d-block image" src="~/imgProduct/@item.Hinh">
+										</div>
+										<div class="col-md-8">
+											<div class="info">
+												<div class="row">
+													<div class="col-md-5 product-name">
+														<div class="product-name">
+															<a href="#">@item.TenSp</a>
+															<div class="product-info">
+																<div>Màn hình: <span class="value">@Math.Round(item.ManHinh.Value, 1) inch</span></div>
+																<div>RAM: <span class="value">@item.Ram GB</span></div>
+																<div>ROM: <span class="value">@item.Rom GB</span></div>
+															</div>
+														</div>
+													</div>
+													<div class="col-md-4 quantity">
+														<label for="quantity">Số lượng:</label>
+														@* <input id="quantity" type="number" value="1" class="form-control quantity-input"> *@
+														<span>@item.SoLuong</span>
+													</div>
+													<div class="col-md-3 price">
+														<label for="quantity">Giá:</label>
+														<span>@item.Gia.ToString("N0")<span>₫</span></span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<br>
+							}
+						</div>
+					</div>
+					<div class="col-md-12 col-lg-4">
+						<div class="summary">
+							<h3>Thông tin cần thanh toán</h3>
+							<br />
+							<div class="summary-item"><span class="text">Tổng số lượng: </span><span class="price">@ViewBag.CountProduct</span></div>
+							<div class="summary-item"><span class="text">Tổng Giá sản phẩm: </span><span class="price">@ViewBag.SubTotal.ToString("N0")<span>₫</span></span></div>
+							<div class="summary-item"><span class="text">Giảm giá: </span><span class="price">@ViewBag.Discount.ToString("N0")<span>₫</span></span></div>
+							<div class="summary-item"><span class="text">Phí vận chuyển: </span><span class="price">0<span>₫</span></span></div>
+							<div class="summary-item"><span class="text">Tổng thành tiền: </span><span class="price">@ViewBag.Total.ToString("N0")<span>₫</span></span></div>
+							<br /> <br />
+								@if (User.Identity.IsAuthenticated)
+								{
+									<a href="@Url.Action("OrderConfirmation", "Cart")" class="btn btn-primary">Mua hàng</a>
+								}
+								else
+								{
+									<a href="@Url.Action("DangNhap", "Account", new { ReturnUrl = Url.Action("ListCarts", "Cart") })" class="btn btn-primary">Đăng nhập để mua hàng</a>
+								}
+						</div>
+					</div>
+				</div>
+			</div>
+			}
+			else
+			{
+				<p>Giỏ hàng của bạn đang trống.</p>
+				<a href="@Url.Action("Index", "Home")">Tiếp tục mua sắm</a>
+			}
+		</div>
+	</section>
+</main>
+<div style="height: 250px;"></div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+

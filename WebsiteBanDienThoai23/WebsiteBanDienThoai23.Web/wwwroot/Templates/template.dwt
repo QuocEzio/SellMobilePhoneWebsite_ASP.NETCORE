@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- TemplateBeginEditable name="doctitle" -->
+    <title>Thế giới di động</title>
+    <!-- TemplateEndEditable -->
+    <link rel="stylesheet" href="../css/bootstrap-theme.css">
+<link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<link rel="stylesheet" href="../css/slick.css">
+<link rel="stylesheet" href="../css/slick-theme.css">
+<link rel="stylesheet" href="../css/TrangChu_style.css">
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+</head>
+
+<body>
+<header>
+        <div class="header-list">
+            <div class="header-list--logo-and-search">
+                <div class="logo">
+                    <a href="../TrangChu.html"><i class="icon logo__ico"></i></a>
+                </div>
+                <div class="search">
+                    <input type="text" placeholder="Bạn tìm gì">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+            <div class="header-list--menu">
+                <ul>
+                    <li><a href="../DienThoai.html"><i class="icon icon_dien_thoai"></i><span>điện thoại</span></a>
+                    </li>
+                    <li><a href="../Tablet.html"><i class="icon icon_tablet"></i><span>tablet</span></a></li>
+                    <li><a href="../Laptop.html"><i class="icon icon_laptop"></i><span>laptop</span></a></li>
+                    <li><a href="../PhuKien.html"><i class="icon icon_phu_kien"></i><span>phụ kiện</span></a></li>
+                    <li><a href="../DongHo.html"><i class="icon icon_dong_ho"></i><span>đồng hồ</span></a></li>
+                    <li><a href="../CuGiaRe.html"><i class="icon icon_cu_gia_re">máy</i><span>cũ giá rẻ</span></a></li>
+                    <li><a href="../TinCongNghe.html"><i class="icon icon_tin_cong_nghe">tin</i><span>công
+                                nghệ</span></a></li>
+                    <li><a href="../HoiDap.html"><i class="icon icon_hoi_dap"></i><span>hỏi đáp</span></a></li>
+                    <li><a href="#">Sim số <br> thể cào</a></li>
+                    <li><a href="../DongTien.html">Đóng tiền điện, <br> nước, trả góp</a></li>
+                </ul>
+				<i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    <!-- TemplateBeginEditable name="EditRegion2" -->
+    <section>
+      <!-- Code Here -->
+    </section>
+    <!-- TemplateEndEditable -->
+    <footer>
+        <div class="container-fluid footer">
+            <div class="row">
+                <div class="col-md-3">
+                    <ul class="list_about">
+                        <li><a href="#">Tìm hiểu về mua trả góp</a></li>
+                        <li><a href="#">Chính sách bảo hành</a></li>
+                        <li><a href="#">Chính sách đổi trả</a></li>
+                        <li><a href="#">Giao hàng & Thanh toán</a></li>
+                        <li><a href="#">Xem thêm <span class="glyphicon glyphicon-triangle-bottom"></span></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul class="list_about">
+                        <li><a href="#">Giới thiệu công ty (mwg.vn)</a></li>
+                        <li><a href="#">Tuyển dụng</a></li>
+                        <li><a href="#">Gửi góp ý, khiếu nại</a></li>
+                        <li><a href="#">Tìm siêu thị (1889 shop)</a></li>
+                        <li><a href="#">Xem bản mobile</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul class="list_about">
+                        <li>Gọi mua hàng <span>1800.1060</span> (7:30 - 22:00)</li>
+                        <li>Gọi khiếu nại <span>1800.1062</span> (8:00 - 21:30)</li>
+                        <li>Gọi bảo hành <span>1800.1064</span> (8:00 - 21:00)</li>
+                        <li>Hỗ trợ kĩ thuật <span>1800.1763</span> (7:30 - 22:00)</li>
+                        <li><a href="#"><i class="icon icon_notification"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul class="list_about">
+                        <li><a href="#"><i class="icon icon_fb"></i>&nbsp;3.3tr</a> | <a href="#"><i class="icon icon_ytb"></i>&nbsp;616.1k</a></li>
+                        <li>Website cùng tập đoàn:</li>
+                        <li><a href="#"><i class="icon icon_dmx"></i></a></li>
+                        <li><a href="#"><i class="icon icon_bhx"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+      </div>
+</footer>
+    <div class="container-fluid privacy">
+        <div class="row">
+            <div class="col-md-12 sub_privacy">
+                <p>&copy; 2019. Công ty cổ phần Thế Giới Di Động. GPDKKD: 0303217354 do sở KH & ĐT TP.HCM cấp ngày
+                    02/01/2007. Địa chỉ: 128 Trần Quang Khải, P. Tân Định, Q.1, TP.Hồ Chí Minh. Điện thoại:
+                    18001060. Email: cskh@thegioididong.com. Chịu trách nhiệm nội dung: Trần Nhật Linh. <a href="#">Xem
+                        chính sách sử dụng web</a> </p>
+            </div>
+        </div>
+    </div>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.js"></script>
+	<script src="../js/slick.js"></script>
+	<script src="../js/nav-mobile.js"></script>
+	<!-- TemplateBeginEditable name="EditRegion1" -->
+	<script type="text/javascript">
+		// Code Here
+    </script>
+	<!-- TemplateEndEditable -->
+</body>
+
+</html>

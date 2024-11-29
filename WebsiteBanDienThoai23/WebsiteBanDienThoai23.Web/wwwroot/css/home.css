@@ -1,0 +1,223 @@
+﻿/***********************************BANNER***********************************/
+.slick-slide img {
+    width: 100%;
+}
+
+.main_technology_news {
+    background: #fff;
+}
+
+.title .slick-slide > div > div {
+    height: 50px;
+    font-size: 13px;
+}
+
+.title_technology_news {
+    border-bottom: 1px solid silver;
+    margin-bottom: 10px;
+}
+
+    .title_technology_news h4 {
+        font-size: 14px;
+    }
+
+        .title_technology_news h4 a {
+            text-transform: uppercase;
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+            background: #fed700;
+            padding: 10px 20px;
+        }
+
+.sub_technology_news {
+    padding-bottom: 10px;
+}
+
+    .sub_technology_news h4 {
+        margin-top: 0;
+    }
+
+        .sub_technology_news h4 a {
+            color: #000;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+    .sub_technology_news .time {
+        color: #999;
+        font-size: 12px;
+    }
+
+    .sub_technology_news h4 a:hover {
+        color: #288ad6;
+    }
+
+.ads_banner img {
+    margin-top: 10px;
+}
+
+.title,
+.title_mobile {
+    background: #fff;
+    margin-top: -5px;
+}
+
+    .title .slick-slide {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        cursor: pointer;
+    }
+
+.slide_and_main_news,
+.ads_banner_2,
+.main_slide_phone_weekend,
+.phone_most_prominent {
+    margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 1240px) {
+    .slick-slide {
+        z-index: 0;
+    }
+}
+
+/**************************************SECTION**************************************/
+.phone_weekend {
+    background: #fff;
+    padding: 30px 10px 0 10px;
+}
+
+    .phone_weekend img {
+        height: 180px;
+        width: 180px;
+    }
+
+.slide_phone_weekend {
+    margin-top: 20px;
+    padding: 0;
+    border: 1px solid #f00;
+}
+
+    .slide_phone_weekend::before {
+        content: ' ';
+        display: block;
+        background: url('../images/12.jpg') no-repeat center center;
+        background-size: 309px 38px;
+        width: 309px;
+        height: 38px;
+        position: absolute;
+        left: 50%;
+        top: -19px;
+        margin-left: -154px;
+        z-index: 9;
+    }
+
+.sub_title {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+    .sub_title h4 {
+        font-size: 14px;
+    }
+
+        .sub_title h4 a {
+            color: #000;
+            text-decoration: none;
+        }
+
+    .sub_title .price {
+        font-weight: bold;
+        color: #f00;
+    }
+
+    .sub_title .old_price {
+        font-weight: normal;
+        text-decoration: line-through;
+        color: #000;
+    }
+
+    .sub_title .description {
+        font-size: 13px;
+    }
+
+    .sub_title h4 a:hover {
+        color: #288ad6;
+    }
+
+.phone_most_prominent {
+    background: #fff;
+    padding-top: 10px;
+}
+
+.list_phone_most_prominent {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+}
+
+@media (max-width: 1240px) {
+    .list_phone_most_prominent {
+        display: -webkit-box;
+        overflow-x: scroll;
+    }
+
+        .list_phone_most_prominent li:first-child {
+            margin-right: 20px;
+        }
+}
+
+.list_phone_most_prominent li:first-child {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-left: 0 !important;
+}
+
+.list_phone_most_prominent li:nth-of-type(2) {
+    margin-left: auto;
+}
+
+.list_phone_most_prominent li:not(:nth-of-type(2)) {
+    margin-left: 20px;
+}
+
+.list_phone_most_prominent li a:hover {
+    color: #288ad6;
+}
+
+.phones img {
+    height: 180px;
+    width: 180px;
+    margin: 0 auto;
+}
+
+
+#projects .project-img {
+    flex-basis: 50%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+    #projects .project-img:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+        opacity: 0.7;
+    }
+
+    #projects .project-img img {
+        transition: 0.3s ease transform;
+    }
+
+#projects .project-item:hover .project-img img {
+    transform: scale(1.1);
+}

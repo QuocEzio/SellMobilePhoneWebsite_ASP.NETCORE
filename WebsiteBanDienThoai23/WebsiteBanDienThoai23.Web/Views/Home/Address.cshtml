@@ -1,0 +1,93 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="~/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+    <link href="~/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="~/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('https://getwallpapers.com/wallpaper/full/6/b/f/1215995-gorgerous-4k-sunset-wallpaper-3840x2160-smartphone.jpg');
+            object-fit: cover;
+            object-position: center;
+            background-position: center center;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="container">
+            <section class="section error-404 min-vh-100 d-flex flex-column align-items-center justify-content-center">
+                <h1 style="color: aliceblue">Bản đồ - Thời tiết</h1>
+                <h2 style="color: aliceblue">Địa chỉ đang được hiển thị trước màn hình của bạn!</h2>
+                <a class="btn" style="color: antiquewhite" href="@Url.Action("Index", "Home")">Trở về trang chủ</a>
+                <div class="col-md-6 ">
+                    <div class="map_container">
+                        <div style="margin-top:20px;margin-bottom:20px;display:flex;justify-content:center;">
+                            
+                            <ul style="background-color:white;list-style-type: none">
+                                @if (ViewBag.ThoiTiet != null)
+                                {
+                                    <li><h4>Thành phố: Hồ Chí Minh</h4></li>
+                                    foreach (var item in ViewBag.ThoiTiet)
+                                    {
+                                        <li>@item</li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 ">
+                    <div class="map_container">
+                        <p style="color: aliceblue"><span>CN Q3: </span>97 Võ Văn Tần, Phường 6, Quận 3, TPHCM</p>
+                        <div  style="margin-top:20px;margin-bottom:20px;display:flex;justify-content:center;">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4534676268927!2d106.68795057407011!3d10.77653905919366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f3afd7416ff%3A0xe4bbdc83b3fb49f8!2zOTcgVsO1IFbEg24gVOG6p24sIFBoxrDhu51uZyA2LCBRdeG6rW4gMywgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaWV0bmFt!5e0!3m2!1sen!2s!4v1716964633504!5m2!1sen!2s" width="700" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 ">
+                    <div class="map_container">
+                        <p style="color: aliceblue"><span>CN Q1: </span>2 Mai Thị Lựu, Đa Kao, Quận 1, TPHCM</p>
+                        <div  style="margin-top:20px;margin-bottom:20px;display:flex;justify-content:center;">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.2706025522707!2d106.69780697407033!3d10.790574558934589!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175298fbe8d0ad9%3A0x752364c60b6da2c3!2sHCMC%20Open%20University%20-%20Campus%204!5e0!3m2!1sen!2s!4v1716964731432!5m2!1sen!2s" width="700" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="credits" style="color:white;font-weight:bold">
+                    Đồ án Website bán điện thoại
+                </div>
+            </section>
+        </div>
+    </main><!-- End #main -->
+    <!-- Vendor JS Files -->
+    <script src="~/assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/vendor/echarts/echarts.min.js"></script>
+    <script src="~/assets/vendor/quill/quill.min.js"></script>
+    <script src="~/assets/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="~/assets/vendor/tinymce/tinymce.min.js"></script>
+    <script src="~/assets/vendor/php-email-form/validate.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNI_ZWPqvdS6r6gPVO50I4TlYkfkZdXh8&callback=initMap&v=weekly" defer></script>
+</body>
+</html>
+
+

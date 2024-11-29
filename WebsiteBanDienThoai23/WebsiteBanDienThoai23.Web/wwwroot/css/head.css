@@ -1,0 +1,353 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+img {
+    width: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a,
+a:hover {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+/**************************************HEADER**************************************/
+
+
+.section,
+.footer {
+    max-width: 1200px;
+    overflow: hidden;
+}
+
+#header {
+    background: #C5CBCE;
+    margin-bottom: 10px;
+}
+
+.header-list {
+    max-width: fit-content;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: flex;
+    height: 55px;
+}
+
+.header-list--logo-and-search {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+            align-items: center;
+    
+    padding: 0 10px;
+}
+
+.icon {
+    background-image: url('../images/424.jpg');
+    background-repeat: no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.logo .logo__ico {
+    width: 155px;
+    height: 27px;
+    background-position: 0 0;
+}
+
+.search input {
+    margin-left: 10px;
+    font-size: 14px;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    outline: none;
+}
+
+.search .fa-search {
+    background: #fff;
+    color: #ccc;
+    margin: -1px 0 0 -4px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.header-list--menu ul {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+            align-items: center;
+    text-transform: uppercase;
+    font-size: 11px;
+}
+
+.header-list--menu ul li {
+    height: 100%;
+    padding: 5px 10px 4px 10px;
+    box-sizing: border-box;
+}
+
+.header-list--menu ul li a {
+    color: #000;
+}
+
+.header-list--menu ul li:nth-child(9) {
+    padding-top: 13px;
+    padding-bottom: 12px;
+    border-left: 1px solid rgba(0, 0, 0, .1);
+}
+
+.header-list--menu ul li:last-child {
+    padding-top: 13px;
+    padding-bottom: 12px;
+    border-left: 1px solid rgba(0, 0, 0, .1);
+}
+
+.icon_dien_thoai {
+    width: 15px;
+    height: 30px;
+    background-position: -190px 0px;
+    display: block;
+    margin: 0 auto;
+}
+
+.icon_tablet {
+    width: 32px;
+    height: 30px;
+    background-position: -209px 0px;
+    display: block;
+    margin: 0 auto;
+}
+
+.icon_phu_kien {
+    width: 22px;
+    height: 30px;
+    background-position: -288px 0px;
+    display: block;
+    margin: 0 auto;
+}
+
+.icon_cu_gia_re {
+    width: 34px;
+    height: 30px;
+    background-position: -315px 0px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 28px;
+    font-style: unset;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #000;
+}
+
+header.scroll {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+@media (max-width: 768px) {
+    .header-list--menu {
+        display: none;
+    }
+
+        .header-list--menu.active {
+            display: block;
+        }
+}
+
+
+/*.carts {
+    position: relative;
+    z-index: 5;
+}
+
+    .carts ul {
+        list-style-type: none;
+        text-align: center;
+    }
+
+
+.carts-list {
+    margin-top: 30px;
+    position: absolute;
+    display: none;
+    width: 200px;
+    height: 300px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    margin-left: -30px !important;
+}*/
+
+.carts li:hover .carts-list {
+    display: block;
+}
+@media (min-width: 1240px){
+    .fa-bars{
+        display: none;
+    }
+}
+
+@media (max-width: 1240px){
+    .logo .logo__ico {
+        width: 27px;
+    }
+    .header-list{
+        display: block;
+        height: auto;
+    }
+    .fa-search{
+        margin: 0 0 0 -4px!important;
+    }
+    .fa-bars{
+        float: right;
+        font-size: 30px;
+        line-height: 55px;
+        margin-right: 10px;
+    }
+    .header-list--menu{
+        display: block;
+    }
+    .header-list--logo-and-search, .logo, .search, .fa-bars{
+        display: inline-block;
+    }
+    .header-list--logo-and-search{
+        padding: 10px;
+    }
+    .header-list--menu ul{
+        display: none;
+        text-align: center;
+    }
+    .header-list--menu ul li{
+        display: inline-block;
+        width: 49%;
+        padding: 0;
+        margin-top: 20px;
+    }
+    .header-list--menu ul li:nth-child(9), .header-list--menu ul li:last-child {
+        border: none;
+    }
+}
+
+@media (max-width: 450px){
+    .search .fa-search{
+        display: none;
+    }
+    .search input{
+        border-radius: 5px;
+    }
+}
+
+
+
+
+/******************************************FOOTER******************************************/
+footer {
+    background: #C5CBCE;
+}
+
+.footer {
+    padding-top: 20px;
+}
+
+.list_about {
+    list-style: none;
+    padding: 0;
+}
+
+.list_about li {
+    margin-bottom: 10px;
+}
+
+.list_about li a {
+    color: #288ad6;
+    text-decoration: none;
+}
+
+.list_about li span {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.list_about li a:hover {
+    color: #999;
+}
+
+.list_about li span:hover {
+    opacity: 0.8;
+}
+
+
+.privacy {
+    margin-top: 10px;
+    background: #f8f8f8;
+}
+
+.privacy .row {
+    max-width: 1425px;
+    margin: 0 auto;
+}
+
+.privacy p,
+.privacy a {
+    color: #999;
+    font-size: 10px;
+    text-decoration: none;
+}
+
+.phone_weekend_mobile {
+    padding-top: 20px;
+}
+
+
+.icon_notification {
+    width: 98px;
+    height: 30px;
+    display: inline-block;
+    vertical-align: middle;
+    background-position: -4px -54px;
+}
+
+@media only screen and (min-width: 992px) {
+
+    .slide_and_main_news .col-md-8,
+    .title_technology_news,
+    .sub_technology_news {
+        padding-left: 0;
+    }
+
+    .ads .col-md-12 {
+        padding-left: 0;
+        padding-right: 0;
+        margin-top: 10px;
+    }
+
+    .ads_banner_2 .col-xs-12 {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .slide_bar .title_mobile {
+        margin-bottom: 20px;
+    }
+}

@@ -1,0 +1,457 @@
+﻿@model WebsiteBanDienThoai23.Web.Models.SanPhamModel
+<link rel="stylesheet" href="~/css/details.css">
+<link rel="stylesheet" href="~/css/style.css">
+
+<div class="container content-grid" style="max-width: fit-content;">
+    <div class="row">
+        <div class="span16 breadcrumbs-grid">
+            <div id="breadcrumbs_10">
+                <div class="breadcrumbs clearfix">
+                    <div class="view_product_title">
+                        <h1 class="mainbox-title" style=" padding-bottom: 0; ">@Model.ItemDetails.TenSp <span style=" font-size: 18px; font-weight: normal; ">Đã sử dụng 99%</span></br></h1>
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="span16 view-detail-product">
+                        <div class="product-main-info">
+                            <div class="clearfix">
+                                <div id="thong_tin_san_pham">
+                                    <div class="row">
+                                        <div class="product-block__img-wrapper">
+                                            <div class="image-wrap product_view_image">
+                                                <div class="image-border center cm-reload-3807" id="product_images_3807_update">
+                                                    <div class="border-image-wrap cm-preview-wrapper">
+                                                        <a id="det_img_link_3807663e2f7ec76e4_37012" data-ca-image-id="preview[product_images_3807663e2f7ec76e4]" class="cm-image-previewer cm-previewer previewer" data-ca-image-width="480" data-ca-image-height="480" href="~/imgProduct/@Model.ItemDetails.Hinh"><img class="   pict" id="det_img_3807663e2f7ec76e4_37012" src="~/imgProduct/@Model.ItemDetails.Hinh" width="480" height="480" alt="iPhone 12 128GB Chính Hãng VN/A" title="iPhone 12 128GB Chính Hãng VN/A" /></a>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="span6 product_view_main">
+                                            <div class="product-main-info">
+                                                <form action="@Url.Action("AddToCart", "Cart", new { id = Model.ItemDetails.MaSp })" method="post" class="cm-disable-empty-files">
+                                                    <div class="main_info_content clearfix">
+                                                        <div class="main_info_left">
+                                                            <div class="prices-container price-wrap clearfix product-detail-price">
+                                                                <div class="float-left product-prices">
+                                                                    <div class="actual-price ">
+                                                                        <span class="cm-reload-3807 price-update" id="price_update_3807">
+                                                                            <span class="price" id="line_discounted_price_3807">
+                                                                                <span id="sec_discounted_price_3807" class="price-num">@Math.Round(Model.ItemDetails.Gia * (1 - (Model.ItemDetails.GiamGia / 100))).ToString("N0")</span>&nbsp;<span class="price-num" style=" text-decoration: underline; ">
+                                                                                    đ
+                                                                                </span>
+                                                                            </span>
+                                                                        </span>
+                                                                        <span class="detail_list_price">@Model.ItemDetails.Gia.ToString("N0")<span>đ</span></span>
+                                                                        <strong class="detail_list_discount_prc">- @Model.ItemDetails.GiamGia<span>%</span></strong>                                                                                                <span class="lab_tragop_o">Trả góp 0%</span>
+                                                                    </div>
+                                                                    <p class="nt-prepaid-installment">Mua Trả trước: <strong></strong>. <a href="tel:0999999999">Liên hệ tư vấn qua điện thoại</a></p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-note">
+                                                                <ul>
+                                                                    <li>@Model.ItemDetails.TenSp<span> tại Mobile Phone Store là máy phiên bản chính hãng thị trường Việt Nam.</span></li>
+                                                                    <li>Giá luôn rẻ hơn thị trường, shop sẵn hàng đủ màu, có hỗ trợ trả góp 0%, ship COD.</li>
+                                                                </ul>
+                                                            </div>
+                                                            @*         <div class="control-group product-list-field clearfix  lab-option-color ">
+                                                            <label class="option_title  ">
+                                                            Sản phẩm này có
+                                                            <strong>Màu @Model.Color</strong>
+                                                            :&nbsp;
+                                                            </label>
+                                                            <ul class="option-radio-group">
+                                                            <li class="hidden"><input type="hidden"/></li>
+
+                                                            <li>
+                                                            <label class="option-items option_color selected_variant_option" style="background: ">
+                                                            <input type="radio" class="radio"  checked="checked" />
+                                                            <i class="icon-ok"></i>
+                                                            <em>  Màu @Model.Color </em>
+
+
+                                                            </label>
+                                                            </li>
+                                                            </ul>
+                                                            </div> *@
+
+                                                            <div class="box-info-body">
+                                                                <ul>
+                                                                    <li class="icon-info-auth">Bảo hành<strong> 12 tháng</strong>&nbsp;chính hãng.</li>
+                                                                    <li class="icon-info-freeship">Giao hàng C.O.D trên toàn quốc</li>
+                                                                    <li class="icon-info-status"><strong>Bộ sản phẩm:</strong> <a data-ca-image-id="preview[phukien_link]" class="cm-image-previewer cm-previewer previewer">Hộp, Sách hướng dẫn, Cây lấy sim, Cáp Lightning - Type C</a></li>
+                                                                    <li class="icon-info-installment"><strong>Trả trước 30%</strong> liên hệ qua <a class="link_tragop" rel="nofollow">điện thoại để được tư vấn</a>. Thủ tục chỉ cần CCCD + GPLX;</li>
+                                                                </ul>
+                                                            </div>
+
+                                                            <input type="hidden" name="MaSp" value="@Model.ItemDetails.MaSp" />
+                                                            <div class="form-group" style="text-align: center;">
+                                                                <label for="SoLuong">Số lượng:</label>
+                                                                <input type="number" id="Quantity" name="Quantity" value="1" min="1" />
+                                                                <button class="btn btn-primary" type="submit">Mua ngay</button>
+                                                            </div>
+
+
+
+
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <ul class="popup-tabs hidden">
+                                                <div id="content_features" class="hidden" title="Cấu hình chi tiết của @Model.ItemDetails.TenSp" data-ca-keep-in-place="true">
+                                                    <img class="   pict" id="det_img_3807" src="~/imgProduct/@Model.ItemDetails.Hinh" width="800" height="600" alt="iphone-12-128gb-note_dd1e-au" title="iphone-12-128gb-note_dd1e-au" />
+                                                    <p class="subheader">Màn hình</p>
+                                                    <div class="control-group">
+                                                        <label>Màn hình rộng:</label>
+                                                        <div class="feature-value"><ul class="no-markers no-margin">@Math.Round(Model.ItemDetails.ManHinh.Value, 1)<span> inches</span></li></ul></div>
+                                                    </div>
+                                                    <p class="subheader">Camera</p>
+                                                    <div class="control-group">
+                                                        <label>Camera sau:</label>
+                                                        <div class="feature-value"><ul class="no-markers no-margin">@Model.ItemDetails.CameraSau<span> MP</span></li></ul></div>
+                                                    </div>
+                                                    <div class="control-group">
+                                                        <label>Camera trước:</label>
+                                                        <div class="feature-value"><ul class="no-markers no-margin">@Model.ItemDetails.CameraTruoc<span> MP</span></li></ul></div>
+                                                    </div>
+                                                    <p class="subheader">Hệ điều hành - CPU</p>
+                                                    <div class="control-group">
+                                                        <label>Chipset:</label>
+                                                        <div class="feature-value"><ul class="no-markers no-margin">@Model.ItemDetails.Cpu</li></ul></div>
+                                                    </div>
+                                                    <div class="control-group">
+                                                        <label>Hệ điều hành:</label>
+                                                        <div class="feature-value"><ul class="no-markers no-margin">@Model.ItemDetails.HeDieuHanh</li></ul></div>
+                                                    </div>
+                                                    <p class="subheader">Bộ nhớ &amp; Lưu trữ</p>
+                                                    <div class="control-group">
+                                                        <label>RAM:</label>
+                                                        <div class="feature-value"><ul class="no-markers no-margin">@Model.ItemDetails.Ram <span> GB</span></li></ul></div>
+                                                    </div>
+                                                    <div class="control-group">
+                                                        <label>Bộ nhớ trong ( Rom):</label>
+                                                        <div class="feature-value"><ul class="no-markers no-margin">@Model.ItemDetails.Rom <span> GB</span></li></ul></div>
+                                                    </div>
+                                                    <p class="subheader">Thông tin pin</p>
+                                                    <div class="control-group">
+                                                        <label>Dung lượng pin:</label>
+                                                        <div class="feature-value">@Model.ItemDetails.Pin <span> mah</span></div>
+                                                    </div>
+                                                </div>
+                                            </ul>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="product-details">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="span16 view-content-product_tab">
+                        <div class="row">
+                            <div class="span11 product_main11">
+                                <div class=" tab_product_view show_full_mota">
+                                    <h2 style=" font-size: 18px; font-weight: normal; margin-bottom: 15px;">Thông tin <span>@Model.ItemDetails.TenSp</span></h2>
+                                    <div id="content_description" class="wysiwyg-content2">
+                                        <div>
+                                            <p><strong>@Model.ItemDetails.TenSp</strong> @Model.ItemDetails.MoTa</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+                                <div class=" mtop20">
+                                    <div class="view-product-face"><h3><span>Bình luận và đánh giá </span></h3></div>
+                                    <div class="discussion-block left" id="content_discussion">
+                                        <div class="clearfix discussion-stars">
+                                            <div class="clearfix discussion-stars-left">
+                                                <div class="discussion_title_name">Đánh giá <strong>@Model.ItemDetails.TenSp</strong></div>
+
+                                            </div>
+                                            @{
+                                                var isAuthenticated = User.Identity.IsAuthenticated;
+                                            }
+
+                                            @if (isAuthenticated)
+                                            {
+                                                @using (Html.BeginForm("SubmitReview", "DienThoai", FormMethod.Post))
+                                                {
+                                                    <div class="form-group">
+                                                        <label for="SoSao">Đánh giá:</label>
+                                                        <select name="SoSao" id="SoSao">
+                                                            <option value="5">5 sao</option>
+                                                            <option value="4">4 sao</option>
+                                                            <option value="3">3 sao</option>
+                                                            <option value="2">2 sao</option>
+                                                            <option value="1">1 sao</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="BinhLuan">Bình luận:</label>
+                                                        <textarea name="BinhLuan" id="BinhLuan" rows="4" cols="50"></textarea>
+                                                    </div>
+                                                    <input type="hidden" name="MaSp" value="@Model.ItemDetails.MaSp" />
+                                                    <button type="submit" class="btn btn-primary">Gửi</button>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <p>Bạn cần <a href="@Url.Action("DangNhap", "Account", new { ReturnUrl = Url.Action("Details", "DienThoai", new { id = Model.ItemDetails.MaSp }) })">đăng nhập</a> để đánh giá sản phẩm.</p>
+                                            }
+                                            <br /> <br />
+                                            <h4>Các đánh giá</h4>
+                                            @foreach (var review in Model.Reviews) 
+                                            {
+                                                <div>
+                                                    <p><strong>@review.HoTen</strong> - @review.SoSao sao</p>
+                                                    <p>@review.BinhLuan</p>
+                                                </div>
+                                            }
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span5 product_right5">
+                                <div class="view-product_features view-product-question">
+                                    <h3>Thông số sản phẩm</h3>
+                                    <div class="content-product_features">
+                                        <div class="features-list-item"><label>Màn hình rộng: </label><span>    @Math.Round(Model.ItemDetails.ManHinh.Value, 1) inches</span></div>
+                                        <div class="features-list-item"><label>Camera sau: </label><span>    @Model.ItemDetails.CameraSau MP</span></div>
+                                        <div class="features-list-item"><label>Camera Trước: </label><span>    @Model.ItemDetails.CameraTruoc MP</span></div>
+                                        <div class="features-list-item"><label>Hệ điều hành: </label><span>    @Model.ItemDetails.HeDieuHanh</span></div>
+                                        <div class="features-list-item"><label>Chipset: </label><span>    @Model.ItemDetails.Cpu</span></div>
+                                        <div class="features-list-item">
+                                            <label>RAM: </label><span>    @Model.ItemDetails.Ram GB</span>
+                                        </div><div class="features-list-item"><label>Bộ nhớ trong ( Rom): </label><span>    @Model.ItemDetails.Rom GB</span></div>
+                                        <div class="features-list-item"><label>Dung lượng pin: </label><span>    @Model.ItemDetails.Pin mAh</span></div></p>
+                                        <a id="features" class="cm-dialog-opener" data-ca-target-id="content_features" rel="nofollow">Xem cấu hình chi tiết</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="https://www.duchuymobile.com/js/lib/jquery/jquery.min.js?ver=4.7.2.SP2"></script>
+        <script type="text/javascript" src="https://www.duchuymobile.com/js/lib/modernizr/modernizr.custom.js?ver=4.7.2.SP2"></script>
+        <script type="text/javascript" src="https://www.duchuymobile.com/js/tygh/core.js?ver=4.7.2.SP2"></script>
+        <script type="text/javascript" src="https://www.duchuymobile.com/js/tygh/ajax.js?ver=4.7.2.SP2"></script>
+        <script type="text/javascript" src="https://www.duchuymobile.com/js/tygh/history.js?ver=4.7.2.SP2"></script>
+        <script type="text/javascript" src="https://www.duchuymobile.com/js/lib/autonumeric/autoNumeric.js?ver=4.7.2.SP2"></script>
+        <script type="text/javascript" src="https://www.duchuymobile.com/js/lib/jqueryui/jquery-ui.custom.min.js?ver=4.7.2.SP2"></script>
+        <script type="text/javascript" src="https://www.duchuymobile.com/js/lib/appear/jquery.appear-1.1.1.js?ver=4.7.2.SP2"></script>
+        <script type="text/javascript" src="https://www.duchuymobile.com/js/tygh/scrollspy.js?ver=4.7.2.SP2"></script>
+        <script type="text/javascript" src="https://www.duchuymobile.com/js/lib/tools/tooltip.min.js?ver=4.7.2.SP2"></script>
+        <script type="text/javascript">
+            (function (_, $) {
+                _.tr({
+                    cannot_buy: 'Bạn không thể mua các sản phẩm với các tùy chọn',
+                    no_products_selected: 'Không có sản phẩm đã chọn',
+                    error_no_items_selected: 'Không có mục được chọn! Phải chọn ít nhất một hộp kiểm để thực hiện hành động này.',
+                    delete_confirmation: 'Bạn có chắc bạn muốn xóa các khoản mục đã chọn không?',
+                    text_out_of_stock: 'Hết hàng',
+                    items: 'sản phẩm',
+                    text_required_group_product: 'Vui lòng chọn một sản phẩm cho nhóm yêu cầu [group_name]',
+                    save: 'Lưu',
+                    close: 'Đóng',
+                    notice: 'Thông báo',
+                    warning: 'Cảnh báo',
+                    error: 'Lỗi',
+                    empty: 'Trống',
+                    text_are_you_sure_to_proceed: 'Bạn có chắc bạn muốn tiếp tục không?',
+                    text_invalid_url: 'Bạn đã nhập một URL không hợp lệ',
+                    error_validator_email: 'Địa chỉ email trong mục <b>[field]<\/b> là không hợp lệ.',
+                    error_validator_phone: 'Số điện thoại không hợp lệ.',
+                    error_validator_integer: 'Giá trị của mục <b>[field]<\/b> là không hợp lệ. Nó phải là số nguyên.',
+                    error_validator_multiple: 'MỤc <b>[field]<\/b> không chứa các tùy chọn được chọn.',
+                    error_validator_password: 'Mật khẩu trong các mục <b>[field2]<\/b> và <b>[field]<\/b> không khớp.',
+                    error_validator_required: 'Bạn vui lòng nhập nội dung (Bắt buộc *) .',
+                    error_validator_zipcode: 'ZIP/Mã bưu điện trong mục <b>[field]<\/b> là không chính xác. Định dạng đúng là [extra].',
+                    error_validator_message: 'Giá trị của mục <b>[field]<\/b> là không hợp lệ.',
+                    text_page_loading: 'Đang tải... Yêu cầu của bạn đang được xử lý, xin vui lòng chờ.',
+                    error_ajax: 'Rất tiếc, một cái gì đó đã sai ([error]). Xin vui lòng thử lại.',
+                    text_changes_not_saved: 'Thay đổi của bạn đã không được lưu.',
+                    text_data_changed: 'Thay đổi của bạn chưa được lưu. Bấm OK để tiếp tục, hoặc hủy bỏ để ở lại trên trang hiện tại.',
+                    placing_order: 'Đặt đơn hàng',
+                    file_browser: 'Duyệt tập tin',
+                    browse: 'Duyệt...',
+                    more: 'Thêm',
+                    text_no_products_found: 'Không tìm thấy sản phẩm',
+                    cookie_is_disabled: 'Để có một trải nghiệm mua sắm đầy đủ, xin vui lòng <a href=\"http://www.wikihow.com/Enable-Cookies-in-Your-Internet-Web-Browser\" target=\"_blank\"> thiết lập trình duyệt của bạn để chấp nhận cookie<\/a>'
+                });
+
+
+
+                $(document).ready(function () {
+                    $.runCart('C');
+                });
+
+                $(document).ready(function () {
+                    $("#gotop").hide();
+                    $('#gotop').click(function () {
+                        $("html, body").animate({ scrollTop: 0 }, 600);
+                        return false;
+                    });
+
+                    $.ajax({
+                        url: "https://www.duchuymobile.com/index.php?dispatch=products.chec_sscart&is_ajax=1",
+                        success: function (result) {
+                            $('#cart_status_135').remove();
+                            $('.top-cart-content').append(result.text);
+                        },
+                    });
+                });
+                $(window).scroll(function () {
+
+                    if ($(window).scrollTop() < 300) {
+                        $("#gotop").hide()
+                    }
+                    else {
+                        $("#gotop").show();
+                    }
+                });
+                $(document).ready(function () {
+
+                    $('.btn-add-to-cart').on('click', function () {
+                        $('#ajax_loading_box').show();
+                    });
+                    $(document).on('click', '.ui-widget-overlay', function () {
+                        $('.ui-dialog-titlebar-close').click();
+                    });
+
+                    $('.mt-radio').on('click', function () {
+                        if ($(this).hasClass('active')) {
+                            return false;
+                        } else {
+                            id = $(this).attr('data_id');
+                            if (id == 'shipping_store') {
+                                $('#d_city').prop('disabled', true);
+                                if ($('#elm_address').val() == "") {
+                                    $('#elm_address').val('tai_cua_hang');
+                                }
+                            }
+                            if (id == 'shipping_home') {
+                                if ($('#elm_address').val() == "tai_cua_hang") {
+                                    $('#elm_address').val('');
+                                }
+                                $('#d_city').prop('disabled', false);
+                            }
+                            $('.mt-radio').removeClass('active');
+                            $(this).addClass('active');
+                            $('.mt-radio-content').hide();
+                            $('#' + id).show();
+                        }
+                    });
+                    $('.show-more').on('click', function () {
+                        $(this).remove();
+                        $('#content_description .area_article').attr("style", "");
+                    });
+                    $('.show_post').on('click', function () {
+                        $('.hidden_post').show();
+                    });
+                    $('.show_post_item').on('click', function () {
+
+                        $('.hidden_post_item').stop().hide();
+
+                        $(this).stop().parent().parent().find('.hidden_post_item').show();
+
+                    });
+
+                    $('.reply-item').on('click', function () {
+
+                        item_id = $(this).attr('id');
+
+                        $('.hiden-form-post-item').stop().hide();
+
+                        $('.hiden-list-item').stop().hide();
+
+                        $('#show-list-' + item_id).stop().show();
+
+                        $('#hiden-form-post-' + item_id).stop().show();
+
+                    });
+                    $('a.to_link').click(function (e) {
+
+                        var link = $(this).attr('href');
+
+                        $("html, body").animate({ scrollTop: $(link).offset().top - 65 }, 1000);
+
+                        return false;
+                    });
+                    $(document).on('click', '.cm-dialog-opener', function () {
+                        id = $(this).attr('id');
+                        if (id == 'features') {
+                            $('body').addClass('bopopup_features');
+                        }
+                    });
+                    $(document).on('click', '.ui-dialog-titlebar-close', function () {
+                        $('body').removeClass('bopopup_features');
+                    });
+                });
+                $.ceEvent('on', 'ce.ajaxdone', function () {
+                    fn_load_img();
+                    $('.show_post').on('click', function () {
+
+                        $('.hidden_post').show();
+
+                    });
+
+                    $('.show_post_item').on('click', function () {
+
+                        $('.hidden_post_item').stop().hide();
+
+                        $(this).stop().parent().parent().find('.hidden_post_item').show();
+
+                    });
+
+                    $('.reply-item').on('click', function () {
+
+                        item_id = $(this).attr('id');
+
+                        $('.hiden-form-post-item').stop().hide();
+
+                        $('.hiden-list-item').stop().hide();
+
+                        $('#show-list-' + item_id).stop().show();
+
+                        $('#hiden-form-post-' + item_id).stop().show();
+
+                    });
+
+                });
+                fn_load_img();
+
+            }(Tygh, Tygh.$));
+            function fn_load_img() {
+                $('img.load_scroll').scrollSpy();
+                $('img.load_scroll').on('scrollSpy:enter', function () {
+                    $(this).removeClass('load_scroll');
+                    var img = $(this).attr('data-src');
+                    $(this).attr("src", img);
+                });
+            }
+
+            function submitFormIns(obj) {
+                $href = $(obj).attr("href");
+                $href += "&option_id=" + $(".option-radio-group input:checked").val();
+                window.location.href = $href;
+                return false;
+            }
+        </script>

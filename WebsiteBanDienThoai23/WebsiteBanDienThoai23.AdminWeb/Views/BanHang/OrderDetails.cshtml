@@ -1,0 +1,29 @@
+﻿@model IEnumerable<WebsiteBanDienThoai23.DAL.Models.ChiTietHoaDon>
+
+@{
+    ViewData["Title"] = "OrderDetails";
+}
+
+<h1>Chi tiết hoá đơn</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Mã sản phẩm</th>
+            <th>Tên sản phẩm</th>
+            <th>Số lượng đặt hàng</th>
+            <th>Đơn giá</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MaSpNavigation.MaSp</td>
+                <td>@item.MaSpNavigation.TenSp</td>
+                <td>@item.SoLuongDatHang</td>
+                <td>@(item.DonGia.HasValue ? item.DonGia.Value.ToString("N0") + " ₫" : "-")</td>
+            </tr>
+        }
+    </tbody>
+</table>

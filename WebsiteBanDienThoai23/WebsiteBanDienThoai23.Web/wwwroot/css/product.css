@@ -1,0 +1,218 @@
+﻿body {
+    background: #fff;
+}
+
+h3 {
+    margin-top: 0;
+}
+
+a {
+    color: #288ad6;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+img {
+    margin: 0 auto;
+}
+
+.banner_dien_thoai,
+.type_dien_thoai,
+.filter_dien_thoai {
+    margin-bottom: 10px;
+}
+
+.ads_dien_thoai img {
+    margin-bottom: 10px;
+}
+
+.list_type_dien_thoai,
+.list_filter_dien_thoai,
+.list_other_phones_dien_thoai,
+.list_shipper_dien_thoai {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+            align-items: center;
+    list-style: none;
+    padding: 0;
+    justify-content: space-around;
+}
+
+.list_type_dien_thoai {
+    -webkit-box-pack: unset;
+            justify-content: unset;
+}
+
+@media only screen and (max-width: 990px) {
+
+    .list_type_dien_thoai,
+    .list_filter_dien_thoai,
+    .list_other_phones_dien_thoai,
+    .list_shipper_dien_thoai {
+        display: -webkit-box;
+        overflow-x: scroll;
+    }
+
+    .list_filter_dien_thoai li:last-child {
+        margin-left: 0 !important;
+    }
+}
+
+.list_type_dien_thoai li {
+    border-right: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.list_type_dien_thoai li:first-child {
+    border-left: 1px solid #ccc;
+}
+
+.list_type_dien_thoai li {
+    padding: 5px 0;
+    background: #fff;
+    width: 147px;
+    height: 40px;
+}
+
+.list_type_dien_thoai .seemore_dien_thoai {
+    line-height: 40px;
+    padding: 0;
+    text-align: center;
+}
+
+.list_type_dien_thoai img {
+    max-height: 25px;
+    max-width: 114px;
+}
+
+.list_filter_dien_thoai {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.list_filter_dien_thoai li {
+    color: #288ad6;
+    margin-right: 15px;
+}
+
+.list_filter_dien_thoai li:first-child {
+    color: #000;
+}
+
+.list_filter_dien_thoai li:last-child {
+    margin-left: auto;
+}
+
+.title_dien_thoai h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.list_dien_thoai {
+    list-style: none;
+    padding: 0;
+    display: -webkit-box;
+    display: flex;
+    flex-wrap: wrap;
+    border-color: #ccc;
+    border-style: solid;
+    border-width: 1px 0 0 1px;
+}
+
+.list_dien_thoai li {
+    padding-top: 20px;
+    border-bottom: 1px solid #ccc;
+    width: 20%;
+    border-right: 1px solid #ccc;
+}
+
+@media only screen and (max-width: 1024px) {
+    .list_dien_thoai li {
+        width: 25%;
+    }
+
+    .list_filter_dien_thoai li {
+        margin-right: 5px;
+    }
+
+    .list_type_dien_thoai .seemore_dien_thoai {
+        height: 40px;
+        line-height: 40px;
+    }
+}
+
+@media only screen and (max-width: 830px) {
+    .list_dien_thoai li {
+        width: 33.33%;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .list_dien_thoai li {
+        width: 100%;
+    }
+}
+
+.main_list_dien_thoai {
+    margin-bottom: 10px;
+}
+
+.viewmore_dien_thoai {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #288ad6;
+    padding: 10px 30px;
+    margin-bottom: 20px;
+}
+
+.viewmore_dien_thoai:hover {
+    background: #288ad6;
+    color: #fff;
+}
+
+.main_shipper_dien_thoai {
+    background: #f1faf3;
+}
+
+.list_shipper_dien_thoai {
+    padding-top: 15px;
+}
+
+.list_shipper_dien_thoai li {
+    border-right: 1px solid #d0dfd2;
+    padding: 0 15px;
+}
+
+.list_shipper_dien_thoai li:last-child {
+    border-right: none;
+}
+
+.main_shipper_dien_thoai {
+    border-top: 1px solid #d0dfd2;
+    border-bottom: 1px solid #d0dfd2;
+}
+
+#filterButton {
+    background-color: #007bff; 
+    color: #ffffff;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    padding: 8px 16px;
+    cursor: pointer; 
+    transition: background-color 0.3s, color 0.3s; 
+}
+
+    #filterButton:hover {
+        background-color: #0056b3;
+        border-color: #0056b3; 
+    }
+
+    #filterButton:active {
+        background-color: #003366; 
+        border-color: #003366; 
+    }

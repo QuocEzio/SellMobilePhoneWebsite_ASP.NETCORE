@@ -1,0 +1,177 @@
+﻿@model WebsiteBanDienThoai23.Web.Models.SanPhamModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="~/css/product.css">
+    <link rel="stylesheet" href="~/css/home.css">
+    <link rel="stylesheet" href="~/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="~/css/bootstrap.css">
+    <link rel="stylesheet" href="~/css/slick.css">
+    <link rel="stylesheet" href="~/css/slick-theme.css">
+</head>
+
+<body>
+    <section>
+        <div class="container-fluid section">
+            <div class="row type_dien_thoai">
+                <div class="col-md-12">
+                    <ul class="list_type_dien_thoai">
+                        @foreach (var loaiSP in Model.DanhSachLoaiSP)
+                        {
+                            <li><a href="/DienThoai/Name?key=@loaiSP.MaLoai"><img src="~/images/@loaiSP.Hinh" alt="" class="img-responsive"></a></li>
+                        }
+                        <li class="seemore_dien_thoai"><a href="/DienThoai">Xem thêm</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row filter_dien_thoai">
+                <div class="col-md-12">
+                    <ul class="list_filter_dien_thoai">
+                        <li>Chọn mức giá: </li>
+                        <li><a href="/DienThoai/Price?min=0&max=12000000">Dưới 12 triệu</a></li>
+                        <li><a href="/DienThoai/Price?min=12000000&max=14000000">Từ 12 - 14 triệu</a></li>
+                        <li><a href="/DienThoai/Price?min=14000000&max=17000000">Từ 14 - 17 triệu</a></li>
+                        <li><a href="/DienThoai/Price?min=17000000&max=23000000">Từ 17 - 23 triệu</a></li>
+                        <li><a href="/DienThoai/Price?min=23000000&max=50000000">Trên 23 triệu</a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row phones_dien_thoai">
+                <div class="col-md-12 title_dien_thoai">
+                    <h3>danh sách điện thoại mới</h3>
+                </div>
+                <div class="row filter_dien_thoai">
+                    <div class="col-md-12">
+                        <ul class="list_filter_dien_thoai">
+                            <li>Bộ lọc: </li>
+                            <li><input type="checkbox" id="pintrau" name="pintrau"> Pin trâu</li>
+                            <li><input type="checkbox" id="cameradep" name="cameradep"> Camera đẹp</li>
+                            <li><input type="checkbox" id="co5g" name="co5g"> Hỗ trợ 5G</li>
+                            <li><button id="filterButton">Lọc</button></li>
+                        </ul>
+                    </div>
+                </div>
+                <style>
+                    #filterButton {
+                        background-color: #007bff;
+                        color: #ffffff; 
+                        border: 1px solid #007bff; 
+                        border-radius: 5px;
+                        padding: 8px 16px; 
+                        cursor: pointer; 
+                        transition: background-color 0.3s, color 0.3s; 
+                    }
+
+                        #filterButton:hover {
+                            background-color: #0056b3;
+                            border-color: #0056b3;
+                        }
+
+                        #filterButton:active {
+                            background-color: #003366;
+                            border-color: #003366;
+                        }
+                </style>
+                <script>
+                    document.getElementById('filterButton').addEventListener('click', function () {
+                        var pintrau = document.getElementById('pintrau').checked;
+                        var cameradep = document.getElementById('cameradep').checked;
+                        var co5g = document.getElementById('co5g').checked;
+
+                        // Gửi yêu cầu lọc đến server và chuyển hướng tới trang kết quả
+                        window.location.href = "/DienThoai/Filter?pintrau=" + pintrau + "&cameradep=" + cameradep + "&co5g=" + co5g;
+                    });
+                </script>
+                <div class="col-md-12 main_list_dien_thoai">
+                    <ul class="list_dien_thoai">
+                        @foreach (var item in Model.Items)
+                        {
+                            <li>
+                                <a asp-action="Details" asp-route-id="@item.MaSp">
+                                    <div class="phone_dien_thoai">
+                                        <img src="~/imgProduct/@item.Hinh" alt="" class="img-responsive">
+                                        <div class="sub_title">
+                                            <h4>
+                                                <a href="@Url.Action("Details", "DetailsProduct", new { id = item.MaSp })">@item.TenSp</a>
+                                            </h4>
+                                            <p class="price">@Math.Round(item.Gia * (1 - (item.GiamGia / 100))).ToString("N0")<span>₫</span>   <span class="old_price"><small>@item.Gia.ToString("N0")<span>₫</span></small></span></p>
+
+                                            @if (item.ManHinh.HasValue)
+                                            {
+                                                <p><small>Màn hình: @Math.Round(item.ManHinh.Value, 1) inch / CPU: @item.Cpu</small></p>
+                                            }
+                                            else
+                                            {
+                                                <p><small>Màn hình: Không có thông tin / CPU: @item.Cpu</small></p>
+                                            }
+                                            <p><small>Dung lượng: @item.Ram GB / @item.Rom GB</small></p>
+                                            <p><small>Camera: Trước (@item.CameraTruoc MP) / Sau (@item.CameraSau MP)</small></p>
+                                            <p><small>Pin: @item.Pin mAh</small></p>
+                                            @if (item._5g == 1)
+                                            {
+                                                <p><small>Có hỗ trợ 5G</small></p>
+                                            }
+                                            else
+                                            {
+                                                <p><small>Không hỗ trợ 5G</small></p>
+                                            }
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align:center; font-family:Consolas">
+                @{
+                    if (Model.TotalPages > 1)
+                    {
+                        for (int i = 1; i <= Model.TotalPages; i++)
+                        {
+                            if (i == Model.CurrentPage)
+                            {
+                                <span>@i</span>
+                            }
+                            else
+                            {
+                                <a style="font-size: 17px" href="/DienThoai?page=@i">@i</a>
+                            }
+                        }
+                    }
+                }
+            </div>
+            <div class="col-md-12 text-center">
+                <br />
+            </div>
+        </div>
+        <div class="container-fluid main_shipper_dien_thoai">
+            <div class="row" style="max-width: 1300px; margin: 0 auto;">
+                <div class="col-md-12">
+                    <ul class="list_shipper_dien_thoai">
+                        <li>
+                            <p>Giao hàng hoả tốc trong 1 giờ</p>
+                        </li>
+                        <li>
+                            <p>Thanh toán linh hoạt: tiền mặt, visa / master, trả góp</p>
+                        </li>
+                        <li>
+                            <p>Trải nghiệm sản phẩm tại nhà</p>
+                        </li>
+                        <li>
+                            <p>Lỗi đổi tại nhà trong 1 ngày</p>
+                        </li>
+                        <li>
+                            <p>Hỗ trợ suốt thời gian sử dụng. Hotline: <a href="#">1800.1763</a></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+</body>
+
+</html>

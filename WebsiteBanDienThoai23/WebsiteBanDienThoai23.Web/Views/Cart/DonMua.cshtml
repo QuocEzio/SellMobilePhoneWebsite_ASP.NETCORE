@@ -1,0 +1,59 @@
+﻿@model List<DonMuaModel>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" ">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<main class="page">
+    <section class="shopping-cart dark">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Mã đơn</th>
+                    <th>Ngày đặt hàng</th>
+                    <th>Tổng giá trị</th>
+                    <th>Địa chỉ giao hàng</th>
+                    <th>Trạng thái thanh toán</th>
+                    <th>Trạng thái đơn hàng</th>
+                    <th>Ngày nhận hàng</th>
+                    <th>Chi tiết đơn</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.MaHd</td>
+                        <td>@item.NgayDatHang</td>
+                        <td>@(item.TongGiaTri.HasValue ? item.TongGiaTri.Value.ToString("N0") + " ₫" : "-")</td>
+                        <td>@item.DiaChiGiaoHang</td>
+                        <td>@(item.TrangThaiThanhToan.HasValue ? (item.TrangThaiThanhToan.Value ? "Đã thanh toán" : "Chưa thanh toán") : "-")</td>
+                        <td>@(item.TrangThaiDonHang.HasValue ? GetOrderStatus(item.TrangThaiDonHang.Value) : "-")</td>
+                        <td>@(item.NgayNhanHang.HasValue ? item.NgayNhanHang.Value.ToString("dd/MM/yyyy") : "-")</td>
+                        <td>
+                            <a href="@Url.Action("ChiTietDonMua", "Cart", new { maHd = item.MaHd })">Xem</a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+
+        @functions {
+            string GetOrderStatus(int status)
+            {
+                switch (status)
+                {
+                    case 0: return "Đang xử lý";
+                    case 1: return "Đang giao hàng";
+                    case 2: return "Giao hàng thành công";
+                    default: return "Không xác định";
+                }
+            }
+        }
+    </section>
+</main>
+<div style="height: 250px;"></div>
+
+

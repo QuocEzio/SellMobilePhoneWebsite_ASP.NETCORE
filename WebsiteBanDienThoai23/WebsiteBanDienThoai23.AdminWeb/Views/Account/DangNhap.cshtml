@@ -1,0 +1,71 @@
+﻿@model WebsiteBanDienThoai23.AdminWeb.Models.DangNhap
+@{
+    Layout = null;
+}
+<link href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+<title>MobilePhone Store</title>
+
+<main>
+    <div class="container">
+
+        <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+
+                        <div class="d-flex justify-content-center py-4">
+                            <a class="logo d-flex align-items-center w-auto">
+                                <img src="~/img/logotext1.png" style="height:80px;width:auto">
+                            </a>
+                        </div>
+
+                        <div class="card mb-3">
+
+                            <div class="card-body">
+
+                                <div class="pt-4 pb-2">
+                                    <h5 class="card-title text-center pb-0 fs-4">Đăng nhập Admin</h5>
+                                </div>
+                                @using (Html.BeginForm("DangNhap", "Account", new { returnurl = ViewBag.ReturnUrl }, FormMethod.Post, false, new { @class = "row g-3 needs-validation", @novalidate = "novalidate" }))
+                                @* @using (Html.BeginForm("DangNhap", "Account", FormMethod.Post, new { @class = "row g-3 needs-validation", @novalidate = "novalidate" })) *@
+                                {
+                                    <div class="col-12">
+                                        @Html.Label("Tên tài khoản:", null, new { @class = "form-label" })
+                                        @Html.TextBox("TenTaiKhoan", null, new { @class = "form-control", @id = "yourUsername", @required = "required", @placeholder = "Nhập tên tài khoản của bạn" })
+                                        @Html.ValidationMessage("TenTaiKhoan", "Vui lòng nhập tên tài khoản của bạn!", new { @class = "invalid-feedback" })
+                                        @if (ViewBag.UserNameError != null)
+                                        {
+                                            <span class="badge badge-danger" style="color:red">@ViewBag.UserNameError</span>
+                                        }
+                                    </div>
+                                    <div class="col-12">
+                                        @Html.Label("Mật khẩu:", null, new { @class = "form-label" })
+                                        @Html.Password("MatKhau", null, new { @class = "form-control", @id = "yourPassword", @required = "required", @placeholder = "Nhập mật khẩu của bạn" })
+                                        @Html.ValidationMessage("MatKhau", "Vui lòng nhập mật khẩu của bạn", new { @class = "invalid-feedback" })
+                                        @if (ViewBag.UserPassError != null)
+                                        {
+                                            <span class="badge badge-danger" style="color:red">@ViewBag.UserPassError</span>
+                                        }
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-primary w-100" type="submit">Đăng nhập</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+
+                        <div class="credits" style="font-weight:bold">
+                            Đồ án Website bán điện thoại
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+</main>

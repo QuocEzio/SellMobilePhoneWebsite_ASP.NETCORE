@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mobile Phone Store</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="~/css/head.css">
+    <link rel="stylesheet" href="~/css/details.css">
+</head>
+<body>
+    <header>
+        <div class="header-list">
+            <div class="header-list--logo-and-search" style="display: flex; align-items: center;">
+                <div class="logo" style="margin-right: 20px;">
+                    <a asp-area="" asp-controller="Home" asp-action="Index">
+                        <img src="~/images/logotext1.png" alt="" style="height:50px">
+                    </a>
+                </div>
+                <form id="searchForm" action="/DienThoai/Name" method="get" style="flex-grow: 1;">
+                    <div class="search">
+                        <input id="searchInput" type="text" name="key" placeholder="Bạn tìm gì">
+                        <button style="border:none">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+
+                <script>
+                    document.getElementById("searchInput").addEventListener("keypress", function (event) {
+                        if (event.keyCode === 13) {
+                            event.preventDefault();
+                            document.getElementById("searchForm").submit();
+                        }
+                    });
+                </script>
+            </div>
+
+
+            <i class="fas fa-bars"></i>
+            <div class="header-list--menu">
+                <ul>
+                    <li><a asp-area="" asp-controller="DienThoai" asp-action="Index"><i class="icon icon_dien_thoai" style="font-size: 12px;"></i><span style="font-size: 12px;">điện thoại</span></a></li>
+                    <li><a asp-area="" asp-controller="MayCu" asp-action="Index"><i class="icon icon_cu_gia_re" style="font-size: 12px;">máy</i><span style="font-size: 12px;">cũ giá rẻ</span></a></li>
+
+                    @{
+                        var isAuthenticated = User.Identity.IsAuthenticated;
+                        var userName = isAuthenticated ? User.Identity.Name : "Guest";
+                    }
+                    @if (isAuthenticated)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("DoiThongTin", "Account")">Xin chào, @userName</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("DoiMatKhau", "Account")">Đổi mật khẩu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("DangXuat", "Account")">Đăng xuất</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("DonMua", "Cart")">Đơn mua</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("DangNhap", "Account")">Đăng nhập</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("DangKy", "Account")">Đăng ký</a>
+                        </li>
+                    }
+                    <li><a asp-area="" asp-controller="Cart" asp-action="ListCarts"><i class="fas fa-cart-plus size" style="font-size: 12px;"></i><span style="font-size: 12px;"> Giỏ hàng</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div>
+        @RenderBody()
+    </div>
+    <footer>
+        <div class="container-fluid footer">
+            <div class="row">
+                <div class="col-md-3">
+                    <ul class="list_about">
+                        <div class="logo">
+                            <a asp-area="" asp-controller="Home" asp-action="Address"> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4534676268927!2d106.68795057407011!3d10.77653905919366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f3afd7416ff%3A0xe4bbdc83b3fb49f8!2zOTcgVsO1IFbEg24gVOG6p24sIFBoxrDhu51uZyA2LCBRdeG6rW4gMywgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaWV0bmFt!5e0!3m2!1sen!2s!4v1716964633504!5m2!1sen!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> Xem chi tiết bản đồ, thời tiết</a>
+                        </div>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul class="list_about">
+                        <li><span>CN Q3: </span>97 Võ Văn Tần, Phường 6, Quận 3, TPHCM</li>
+                        <li><span>CN Q1: </span>2 Mai Thị Lựu, Đa Kao, Quận 1, TPHCM</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul class="list_about">
+                        <li>Gọi mua hàng <span>1800.1000</span> (7:30 - 22:00)</li>
+                        <li>Gọi khiếu nại <span>1800.1001</span> (8:00 - 21:30)</li>
+                        <li>Gọi bảo hành <span>1800.1002</span> (8:00 - 21:00)</li>
+                        <li>Hỗ trợ kĩ thuật <span>1800.1003</span> (7:30 - 22:00)</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul class="list_about">
+                        <div class="logo">
+                            <a asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/logotext1.png" alt="" height="100%" width="100%"></a>
+                        </div>
+                </div>
+            </div>
+        </div>
+        </div><p style="text-align: center;"><span style="font-size:12px;">&copy; 2024. Cửa hàng Mobile Phone Store. Email: abc@Ou.edu.vn. Chịu trách nhiệm nội dung: Lê Minh Tính, Nguyễn Thái Quốc, Nguyễn Ích Trường.</span></p>
+    </footer>
+
+    <a style="display: scroll; position: fixed; bottom: 20px; right: 7px;" title="Back to Top" href="#"><img src="~/images/up-arrow.png" /></a>
+    <script src="~/js/jquery.js"></script>
+    <script src="~/js/bootstrap.js"></script>
+    <script src="~/js/slick.js"></script>
+    <script src="~/js/nav-mobile.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.demo').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                arrows: false,
+                asNavFor: '.title'
+            });
+            $('.title').slick({
+                slidesToShow: 5,
+                slidesToScroll: 1,
+                arrows: false,
+                asNavFor: '.demo',
+                autoplay: true,
+                focusOnSelect: true
+            });
+            $('.demo_mobile').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                arrows: false,
+                asNavFor: '.title_mobile'
+            });
+            $('.title_mobile').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false,
+                autoplay: true,
+                asNavFor: '.demo',
+                focusOnSelect: true
+            });
+            $('.phone_weekend').slick({
+                slidesToShow: 5,
+                slidesToScroll: 1,
+                arrows: true,
+                autoplay: true,
+            });
+            $('.phone_weekend_mobile').slick({
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                arrows: true,
+                autoplay: true,
+            });
+        });
+    </script>
+</body>
+</html>

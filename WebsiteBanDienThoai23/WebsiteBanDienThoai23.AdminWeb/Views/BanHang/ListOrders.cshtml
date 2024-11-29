@@ -1,0 +1,105 @@
+﻿@model IEnumerable<WebsiteBanDienThoai23.DAL.Models.HoaDon>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Mã hoá đơn
+            </th>
+            <th>
+                Khách hàng
+            </th>
+            <th>
+                Nhân viên
+            </th>
+            <th>
+                Ngày đặt hàng
+            </th>
+            <th>
+                Địa chỉ giao
+            </th>
+            <th>
+                Tổng giá trị
+            </th>
+            <th>
+                Trạng thái TT
+            </th>
+            <th>
+                Trạng thái ĐH
+            </th>
+            <th>
+                Ngày nhận hàng
+            </th>
+            <th>
+                Chi tiết hoá đơn
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaHd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaKhNavigation.HoTen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaNvNavigation.HoTen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayDatHang)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiaChiGiaoHang)
+                </td>
+                <td>
+                    @(item.TongGiaTri.HasValue ? item.TongGiaTri.Value.ToString("N0") + " ₫" : "-")
+                </td>
+                <td>
+                    @if (item.TrangThaiTt.HasValue)
+                    {
+                        @(item.TrangThaiTt.Value ? "Đã thanh toán" : "Chưa thanh toán")
+                    }
+                </td>
+                <td>
+                    @switch (item.TrangThaiDh)
+                    {
+                        case 0:
+                            <span>Đang xử lý</span>
+                            break;
+                        case 1:
+                            <span>Đang giao</span>
+                            break;
+                        case 2:
+                            <span>Đã giao</span>
+                            break;
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayNhanHang)
+                </td>
+                <td>
+                    <a href="@Url.Action("OrderDetails", "BanHang", new { maHd = item.MaHd })">Xem</a>
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.MaHd">Edit</a> |
+                    <form asp-action="DeleteConfirmed" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="@item.MaHd" />
+                        <input type="submit" value="Delete" class="btn btn-link text-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa hóa đơn này không?');" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

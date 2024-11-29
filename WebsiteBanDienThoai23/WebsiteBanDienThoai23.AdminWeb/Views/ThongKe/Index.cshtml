@@ -1,0 +1,45 @@
+﻿
+<h2>Thống kê doanh thu bán hàng</h2>
+
+@using (Html.BeginForm("Index", "ThongKe", FormMethod.Post, new { @class = "row g-3 needs-validation", @novalidate = "novalidate" }))
+{
+    <div class="col-12">
+        @Html.Label("Ngày bắt đầu:", null, new { @class = "form-label" })
+        @Html.TextBox("NgayBD", null, new { @class = "form-control", @type = "date", @required = "required" })
+		@if (ViewBag.NgayKT != null)
+		{
+			<span style="color:red">@ViewBag.NgayKT</span>
+		}
+    </div>
+    <div class="col-12">
+        @Html.Label("Ngày kết thúc:", null, new { @class = "form-label" })
+        @Html.TextBox("NgayKT", null, new { @class = "form-control", @type = "date", @required = "required" })
+		@if (ViewBag.NgayKT != null)
+		{
+			<span style="color:red">@ViewBag.NgayKT</span>
+		}
+    </div>
+    <div class="col-12">
+        <button class="btn btn-primary w-100" type="submit">Thống kê doanh thu</button>
+    </div>
+}
+<div class="col-12">
+	<table class="table">
+		<tr>
+			<th>
+				@Html.DisplayName("Số lượng đơn hàng: ")
+			</th>
+			<th>
+				@Html.DisplayName("Tổng doanh thu: ")
+			</th>
+		</tr>
+		<tr>
+			<td>
+				@ViewBag.SLDH
+			</td>
+			<td>
+				@ViewBag.DT
+			</td>
+		</tr>
+	</table>
+</div>
